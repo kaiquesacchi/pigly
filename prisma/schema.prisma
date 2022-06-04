@@ -17,7 +17,7 @@ model Link {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  slug String @db.VarChar(16) @unique
+  slug String @db.VarChar(15) @unique
   fullLink String @db.VarChar(255)
 
   @@index(slug)
