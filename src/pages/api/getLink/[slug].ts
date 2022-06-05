@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@lib/prisma";
+import { withSentry } from "@sentry/nextjs";
 
 type Data = {
   id: number;
@@ -13,7 +14,7 @@ type Error = {
   message: string;
 };
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data | Error>
 ) {
@@ -33,3 +34,5 @@ export default async function handler(
 
   res.status(200).json(data);
 }
+
+export default withSentry(handler);

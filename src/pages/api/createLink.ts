@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import constants from "@/constants";
 import prisma from "@lib/prisma";
 import { Prisma } from "@prisma/client";
+import { withSentry } from "@sentry/nextjs";
 
 type InputBody = {
   slug: string;
@@ -58,7 +59,7 @@ function isBodyValid(body: any, response: NextApiResponse): body is InputBody {
   return true;
 }
 
-export default async function handler(
+async function handler(
   request: NextApiRequest,
   response: NextApiResponse<Data | Error>
 ) {
@@ -91,3 +92,5 @@ export default async function handler(
     }
   }
 }
+
+export default withSentry(handler);
