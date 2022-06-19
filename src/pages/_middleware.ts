@@ -5,6 +5,8 @@ export async function middleware(
 ): Promise<Response | undefined> {
   if (
     request.nextUrl.pathname === "/" ||
+    request.nextUrl.pathname === "/pig.png" ||
+    request.nextUrl.pathname === "/favicon.png" ||
     request.nextUrl.pathname.startsWith("/api/")
   )
     return;
