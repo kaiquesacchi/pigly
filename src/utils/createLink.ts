@@ -22,7 +22,7 @@ export default async function createLink(
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/createLink`,
+      `${process.env.NEXT_PUBLIC_URL}/api/createLink`,
       {
         headers: new Headers([["Content-Type", "application/json"]]),
         method: "POST",

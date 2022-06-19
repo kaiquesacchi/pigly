@@ -44,7 +44,7 @@ const Home: NextPage = () => {
               ref={fullLinkInputRef}
             />
             <div id="short-link-area">
-              <span>{process.env.NEXT_PUBLIC_VERCEL_URL}</span>
+              <span>{process.env.NEXT_PUBLIC_URL?.split("://")[1]}</span>
               <input
                 id="short-link"
                 type="text"
