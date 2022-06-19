@@ -1,0 +1,73 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #456;
+  margin: 0;
+}
+
+.background-white {
+  background-color: #fff;
+}
+
+.background-green {
+  background-color: #80b8b2;
+}
+
+.centralize-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.text-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  flex: 1;
+}
+
+#attribution {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #456;
+  text-decoration: none;
+}
+
+#center-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#form {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1 1;
+  row-gap: 10px;
+}
+
+#title {
+  font-size: 3rem;
+  margin-right: 10px;
+}
+
+#short-link-area {
+  display: flex;
+  align-items: center;
+}
+
+#submit-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
