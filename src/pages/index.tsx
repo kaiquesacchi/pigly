@@ -1,19 +1,28 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import { FormEventHandler, useCallback, useRef } from "react";
+import { toast } from "react-toastify";
+import createLink from "@/utils/createLink";
+import { ConflictError, InputError, UnexpectedError } from "@/errors";
 
-const URL = "pigly.vercel.app/";
 const Home: NextPage = () => {
   const fullLinkInputRef = useRef<HTMLInputElement>(null);
   const shortLinkInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = useCallback<FormEventHandler<HTMLFormElement>>(
-    (event) => {
+    async (event) => {
       event.preventDefault();
-      console.log({
-        fullLink: fullLinkInputRef.current?.value,
-        shortLink: shortLinkInputRef.current?.value,
-      });
+      const error = await createLink(
+        fullLinkInputRef.current?.value,
+        shortLinkInputRef.current?.value
+      );
+      console.log({ error });
+      if (error instanceof ConflictError) toast.info(error.message, {});
+      else if (error instanceof InputError) toast.error(error.message, {});
+      else if (error instanceof UnexpectedError) toast.error(error.message, {});
+      else toast.success("Link created!");
+      fullLinkInputRef.current!.value = "";
+      shortLinkInputRef.current!.value = "";
     },
     [fullLinkInputRef, shortLinkInputRef]
   );
@@ -35,7 +44,7 @@ const Home: NextPage = () => {
               ref={fullLinkInputRef}
             />
             <div id="short-link-area">
-              <span>{URL}</span>
+              <span>{process.env.NEXT_PUBLIC_URL}</span>
               <input
                 id="short-link"
                 type="text"
