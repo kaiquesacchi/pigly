@@ -19,8 +19,7 @@
 }
 
 .full-screen {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
 }
 
 .text-input {
@@ -47,10 +46,8 @@
 
 #form {
   margin-top: 30px;
-  display: grid;
-  grid-template-columns: 1;
-  grid-template-rows: 1 1;
-  row-gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 #title {
@@ -61,6 +58,7 @@
 #short-link-area {
   display: flex;
   align-items: center;
+  margin: 10px 0;
 }
 
 #submit-button {
@@ -70,4 +68,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 0px 7px 1px #40506020;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  align-self: center;
+  margin-top: 30px;
+}
+
+#submit-button:hover {
+  background-color: #eee;
+}
+
+#submit-button:active {
+  background-color: #80b8b2;
 }
