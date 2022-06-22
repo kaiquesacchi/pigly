@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <ToastContainer />
     </>
   );
