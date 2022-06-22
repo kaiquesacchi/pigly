@@ -61,7 +61,7 @@ const Home: NextPage = () => {
                 height="100"
                 layout="fixed"
               />
-              Submit
+              Create Link
             </button>
           </form>
         </div>
