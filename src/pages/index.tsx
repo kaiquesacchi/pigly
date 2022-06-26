@@ -28,32 +28,35 @@ const Home: NextPage = () => {
   );
 
   return (
-    <div className="background-green centralize-content full-screen">
-      <div className="background-white" id="center-card">
-        <div>
-          <span id="title">Pigly</span>
+    <div className="min-h-screen w-screen bg-emerald-800 flex justify-center items-center">
+      <div className="bg-white shadow-lg p-4 w-screen max-w-3xl flex flex-col">
+        <div className="mb-4 border-b-slate-100 border-b-2 pb-3">
+          <span className="text-5xl text-slate-700">Pigly</span>
           <span>Link Shortener</span>
         </div>
         <div>
-          <form onSubmit={handleSubmit} id="form">
+          <form onSubmit={handleSubmit} className="flex flex-col">
             <input
-              id="full-link"
+              className="w-full bg-slate-100 p-3 hover:bg-slate-200"
               type="text"
               placeholder="Original Link"
-              className="text-input"
               ref={fullLinkInputRef}
+              required
             />
-            <div id="short-link-area">
+            <div className="flex items-center mt-3">
               <span>{process.env.NEXT_PUBLIC_URL?.split("://")[1]}</span>
               <input
-                id="short-link"
+                className="w-full bg-slate-100 p-3 hover:bg-slate-200"
                 type="text"
                 placeholder="Short Link"
-                className="text-input"
                 ref={shortLinkInputRef}
+                required
               />
             </div>
-            <button type="submit" id="submit-button">
+            <button
+              type="submit"
+              className="flex flex-col py-3 px-6 self-center mt-3 items-center font-bold bg-slate-100 hover:bg-slate-200"
+            >
               <Image
                 src="/pig.png"
                 alt="submit button"
@@ -69,7 +72,7 @@ const Home: NextPage = () => {
       <a
         href="https://www.flaticon.com/free-icons/pig"
         title="pig icons"
-        id="attribution"
+        className="absolute right-1 bottom-1 text-slate-300"
       >
         Pig icons created by Freepik - Flaticon
       </a>
